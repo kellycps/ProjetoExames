@@ -1,7 +1,12 @@
 package com.soctest.action;
 
 import com.soctest.bean.TipoExameBean;
+import com.soctest.bean.PacienteBean;
+import com.soctest.bean.MedicoBean;
+
 import com.soctest.dao.TipoExame;
+import com.soctest.dao.Paciente;
+import com.soctest.dao.Medico;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -25,10 +30,11 @@ public class Exame extends ActionSupport {
 	private String data_vencimento;
 	private String avaliacao;
 	private List<TipoExameBean> tipoExameList = new ArrayList<TipoExameBean>();
-	private List<String> pacienteList;
-	private List<String> medicoList;
-	private List<String> aptoList;
+	private List<PacienteBean> pacienteList = new ArrayList<PacienteBean>();
+	private List<MedicoBean> medicoList = new ArrayList<MedicoBean>();
 	private TipoExameBean tipoExameBean = null;
+	private PacienteBean pacienteBean = null;
+	private MedicoBean medicoBean = null;
 	
 	public Exame() throws SQLException, Exception {
 		
@@ -40,35 +46,55 @@ public class Exame extends ActionSupport {
 			while (rs.next()) {
 				i++;
 				tipoExameBean = new TipoExameBean();
-				tipoExameBean.setId(i);
+				tipoExameBean.setId(rs.getInt("id"));
 				tipoExameBean.setNome(rs.getString("nome"));
 				tipoExameList.add(tipoExameBean);
 			}
 		}
 		
-		pacienteList = new ArrayList<String>();
-		pacienteList.add("1");
-		pacienteList.add("2");
+		Paciente paciente = new Paciente();
+		rs = paciente.listar();
 		
-		medicoList = new ArrayList<String>();
-		medicoList.add("1");
-		medicoList.add("2");
+		i = 0;
+		if (rs != null) {
+			while (rs.next()) {
+				i++;
+				pacienteBean = new PacienteBean();
+				pacienteBean.setId(rs.getInt("id"));
+				pacienteBean.setNome(rs.getString("nome"));
+				pacienteList.add(pacienteBean);
+			}
+		}
+		
+		Medico medico = new Medico();
+		rs = medico.listar();
+		
+		i = 0;
+		if (rs != null) {
+			while (rs.next()) {
+				i++;
+				medicoBean = new MedicoBean();
+				medicoBean.setId(rs.getInt("id"));
+				medicoBean.setNome(rs.getString("nome"));
+				medicoList.add(medicoBean);
+			}
+		}
 		
 	}
 	
-	public List<String> getPacienteList() {
+	public List<PacienteBean> getPacienteList() {
 		return pacienteList;
 	}
 
-	public void setPacienteList(List<String> pacienteList) {
+	public void setPacienteList(List<PacienteBean> pacienteList) {
 		this.pacienteList = pacienteList;
 	}
 
-	public List<String> getMedicoList() {
+	public List<MedicoBean> getMedicoList() {
 		return medicoList;
 	}
 
-	public void setMedicoList(List<String> medicoList) {
+	public void setMedicoList(List<MedicoBean> medicoList) {
 		this.medicoList = medicoList;
 	}
 	
@@ -126,14 +152,6 @@ public class Exame extends ActionSupport {
 	
 	public void setAvaliacao(String avaliacao) {
 		this.avaliacao = avaliacao;
-	}
-
-	public List<String> getAptoList() {
-		return aptoList;
-	}
-
-	public void setAptoList(List<String> aptoList) {
-		this.aptoList = aptoList;
 	}
 
 	public Boolean getApto() {

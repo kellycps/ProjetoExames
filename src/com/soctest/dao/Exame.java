@@ -85,16 +85,7 @@ public class Exame {
 			sql += "AND apto = " + apto;
 			
 			PreparedStatement ps = getConnection().prepareStatement(sql);
-			/*
-			 * ps.setInt(1, tipo_exame_id);
-			ps.setInt(2, paciente_id);
-			ps.setInt(3, medico_id);
-			ps.setString(4, data_inicio_realizacao);
-			ps.setString(5, data_fim_realizacao);
-			ps.setString(6, data_inicio_vencimento);
-			ps.setString(7, data_fim_vencimento);
-			ps.setInt(8, apto);
-			*/
+
 			rs = ps.executeQuery();
 			return rs;
 		} catch (Exception e) {

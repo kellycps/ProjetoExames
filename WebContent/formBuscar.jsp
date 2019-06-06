@@ -10,8 +10,8 @@
 <body>
 	<s:form action="buscarExame">
 		<s:select label="Tipo de exame" list="tipoExameList" listKey="id" listValue="nome" name="tipo_exame_id" headerKey="0" headerValue="Todos"></s:select>
-		<s:select label="Paciente" list="pacienteList" name="paciente_id" headerKey="0" headerValue="Todos"></s:select>
-		<s:select label="Médico" list="medicoList" name="medico_id" headerKey="0" headerValue="Todos"></s:select>	
+		<s:select label="Paciente" list="pacienteList" listKey="id" listValue="nome" name="paciente_id" headerKey="0" headerValue="Todos"></s:select>
+		<s:select label="Médico" list="medicoList" listKey="id" listValue="nome" name="medico_id" headerKey="0" headerValue="Todos"></s:select>	
 		<s:textfield label="Período realização" name="data_inicio_realizacao" />
 		<s:textfield label="" name="data_fim_realizacao" />
 		<s:textfield label="Exames a vencer" name="data_inicio_vencimento" />

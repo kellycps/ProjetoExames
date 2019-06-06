@@ -39,6 +39,14 @@
 		<action name="deletarExame" class="com.soctest.action.DeletarExame">
 			<result name="SUCCESS">/mensagem.jsp</result>
 		</action>
+		
+		<action name="editarExame" class="com.soctest.action.EditarExame">
+			<result name="SUCCESS">/formAlterar.jsp</result>
+		</action>
+		
+		<action name="AlterarExame" class="com.soctest.action.AlterarExame">
+			<result name="SUCCESS">/formAlterar.jsp</result>
+		</action>
 	
 	</package>
 </struts>

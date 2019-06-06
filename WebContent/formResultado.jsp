@@ -26,16 +26,16 @@
 				<s:iterator value="beanList">
 					<tr>
 						<td><s:property value="id" /></td>
-						<td><s:property value="tipo_exame_id" /></td>
-						<td><s:property value="paciente_id" /></td>
-						<td><s:property value="medico_id" /></td>
+						<td><s:property value="nome_tipo_exame" /></td>
+						<td><s:property value="nome_paciente" /></td>
+						<td><s:property value="nome_medico" /></td>
 						<td><s:property value="data_realizacao" /></td>
 						<td><s:property value="data_vencimento" /></td>
 						<td><s:property value="ds_apto" /></td>
 						<td>
-							<!-- <a href="updatedetails.action?submitType=updatedata&uemail=<s:property value="id"/>">
+							<a href="editarExame.action?id=<s:property value="id"/>">
 								<button class="button-update">Alterar</button>
-							</a> -->
+							</a>
 							<a href="deletarExame.action?id=<s:property value="id"/>">
 								<button class="button-delete">Excluir</button>
 							</a>
