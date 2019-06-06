@@ -1,0 +1,15 @@
+@charset "ISO-8859-1";
+body {
+	background: #E9E9E9;
+}
+form {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: auto 0;
+}
+table {
+	padding: 20px;
+	border-radius: 3px;
+	background: #FFF;
+}

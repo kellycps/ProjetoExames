@@ -12,7 +12,7 @@ public class AlterarExame extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 	private int id, tipo_exame_id, paciente_id, medico_id;
 	private String data_realizacao, data_vencimento, avaliacao;
-	private Boolean apto;
+	private String apto;
 	private String msg = "";
 	Exame exame = null;
 	int sucesso = 0;
@@ -24,9 +24,10 @@ public class AlterarExame extends ActionSupport {
 		DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		data_realizacao = formato.format(LocalDate.parse(data_realizacao, formato));
 		data_vencimento = formato.format(LocalDate.parse(data_vencimento, formato));
-		
+
+		Boolean aptoBool = apto.equals("sim") ? true : false;
 		try {
-			sucesso = exame.alterar(id, tipo_exame_id, paciente_id, medico_id, data_realizacao, data_vencimento, avaliacao, apto);
+			sucesso = exame.alterar(id, tipo_exame_id, paciente_id, medico_id, data_realizacao, data_vencimento, avaliacao, aptoBool);
 			if (sucesso > 0) {
 				msg = "Exame Alterado com sucesso!";
 			} else {
@@ -86,11 +87,11 @@ public class AlterarExame extends ActionSupport {
 		this.avaliacao = avaliacao;
 	}
 
-	public Boolean getApto() {
+	public String getApto() {
 		return apto;
 	}
 
-	public void setApto(Boolean apto) {
+	public void setApto(String apto) {
 		this.apto = apto;
 	}
 

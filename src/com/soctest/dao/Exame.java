@@ -148,26 +148,27 @@ public class Exame {
 		getConnection().setAutoCommit(false);
 		int i = 0;
 		try {
-			
+			System.out.println(apto);
 			String sql = "UPDATE dbo.exame SET "
-							+ "tipo_exame_id = ?, "
-							+ "paciente_id = ?, "
-							+ "medico_id = ?, "
-							+ "data_realizacao = ?, "
-							+ "data_vencimento = ?, "
-							+ "observacao = ?, "
-							+ "apto = ? "
-							+ "WHERE id = ?";
-			
+							+ "tipo_exame_id = " + tipo_exame_id + ", "
+							+ "paciente_id = " + paciente_id + ", "
+							+ "medico_id = " + medico_id + ", "
+							+ "data_realizacao = '" + data_realizacao + "', "
+							+ "data_vencimento = '" + data_vencimento + "', "
+							+ "observacao = '" + observacao + "', "
+							+ "apto = " + (apto ? 1 : 0) + " "
+							+ "WHERE id = " + id;
+			System.out.println(sql);
 			PreparedStatement ps = getConnection().prepareStatement(sql);
-			ps.setInt(1, tipo_exame_id);
+			/*ps.setInt(1, tipo_exame_id);
 			ps.setInt(2, paciente_id);
 			ps.setInt(3, medico_id);
 			ps.setString(4, data_realizacao);
 			ps.setString(5, data_vencimento);
 			ps.setString(6, observacao);
 			ps.setBoolean(7, apto);
-			
+			ps.setInt(8, id);*/
+
 			i = ps.executeUpdate();
 			return i;
 			
