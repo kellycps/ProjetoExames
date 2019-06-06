@@ -3,7 +3,7 @@ package com.soctest.bean;
 public class ExameBean {
 
 	private int id, paciente_id, medico_id, tipo_exame_id;
-	private String data_realizacao, data_vencimento, observacao;
+	private String data_realizacao, data_vencimento, observacao, ds_apto;
 	private Boolean apto;
 	
 	public int getId() {
@@ -67,7 +67,16 @@ public class ExameBean {
 	}
 	
 	public void setApto(Boolean apto) {
+		this.setDs_apto(apto ? "Sim" : "Não");
 		this.apto = apto;
+	}
+
+	public String getDs_apto() {
+		return ds_apto;
+	}
+
+	public void setDs_apto(String ds_apto) {
+		this.ds_apto = ds_apto;
 	}
 	
 }

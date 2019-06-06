@@ -31,7 +31,7 @@
 						<td><s:property value="medico_id" /></td>
 						<td><s:property value="data_realizacao" /></td>
 						<td><s:property value="data_vencimento" /></td>
-						<td><s:property value="apto" /></td>
+						<td><s:property value="ds_apto" /></td>
 						<td>
 							<!-- <a href="updatedetails.action?submitType=updatedata&uemail=<s:property value="id"/>">
 								<button class="button-update">Alterar</button>

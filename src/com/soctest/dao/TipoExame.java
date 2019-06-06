@@ -36,4 +36,21 @@ public class TipoExame {
 		}
 	}
 	
+	public ResultSet consultar(int id) throws SQLException, Exception {
+		ResultSet rs = null;
+		try {
+			String sql = "SELECT * FROM dbo.tipo_exame WHERE id = " + id;
+			PreparedStatement ps = getConnection().prepareStatement(sql);
+			rs = ps.executeQuery();
+			return rs;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+			if (getConnection() != null) {
+				getConnection().close();
+			}
+		}
+	}
+	
 }

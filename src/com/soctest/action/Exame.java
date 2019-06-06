@@ -24,15 +24,17 @@ public class Exame extends ActionSupport {
 	private String data_realizacao;
 	private String data_vencimento;
 	private String avaliacao;
-	private List<String> tipoExameList;
+	private List<TipoExameBean> tipoExameList = new ArrayList<TipoExameBean>();
 	private List<String> pacienteList;
 	private List<String> medicoList;
 	private List<String> aptoList;
+	private TipoExameBean tipoExameBean = null;
 	
 	public Exame() throws SQLException, Exception {
 		
-		/*
-		rs = tipoExame.listar();
+		TipoExame tipoExame = new TipoExame();
+		ResultSet rs = tipoExame.listar();
+		
 		int i = 0;
 		if (rs != null) {
 			while (rs.next()) {
@@ -43,7 +45,6 @@ public class Exame extends ActionSupport {
 				tipoExameList.add(tipoExameBean);
 			}
 		}
-		*/
 		
 		pacienteList = new ArrayList<String>();
 		pacienteList.add("1");
@@ -71,11 +72,11 @@ public class Exame extends ActionSupport {
 		this.medicoList = medicoList;
 	}
 	
-	public List<String> getTipoExameList() {
+	public List<TipoExameBean> getTipoExameList() {
 		return tipoExameList;
 	}
 
-	public void setTipoExameList(List<String> tipoExameList) {
+	public void setTipoExameList(List<TipoExameBean> tipoExameList) {
 		this.tipoExameList = tipoExameList;
 	}
 

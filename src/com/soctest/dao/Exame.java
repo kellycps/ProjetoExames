@@ -59,14 +59,34 @@ public class Exame {
 		try {
 			String sql = "SELECT id, tipo_exame_id, paciente_id, medico_id, data_realizacao, data_vencimento, apto "
 							+ "FROM dbo.exame "
-								+ "WHERE tipo_exame_id = ? "
-									+ "AND paciente_id = ? "
-									+ "AND medico_id = ? "
-									+ "AND data_realizacao BETWEEN ? AND ? "
-									+ "AND data_vencimento BETWEEN ? AND ? "
-									+ "AND apto = ?";
+							+ "WHERE id > 0 ";
+			
+			if (tipo_exame_id != 0)
+				sql += "AND tipo_exame_id = " + tipo_exame_id + " ";
+			
+			if (paciente_id != 0)
+				sql += "AND paciente_id = " + paciente_id + " ";
+			
+			if (medico_id != 0)
+				sql += "AND medico_id = " + medico_id + " ";
+
+			if (!data_inicio_realizacao.isEmpty())
+				sql += "AND data_realizacao >= " + data_inicio_realizacao + " ";
+			
+			if (!data_fim_realizacao.isEmpty())
+				sql += "AND data_realizacao <= " + data_fim_realizacao + " ";
+			
+			if (!data_inicio_vencimento.isEmpty())
+				sql += "AND data_vencimento >= " + data_inicio_vencimento + " ";
+			
+			if (!data_fim_vencimento.isEmpty())
+				sql += "AND data_vencimento <= " + data_fim_vencimento + " ";
+			
+			sql += "AND apto = " + apto;
+			
 			PreparedStatement ps = getConnection().prepareStatement(sql);
-			ps.setInt(1, tipo_exame_id);
+			/*
+			 * ps.setInt(1, tipo_exame_id);
 			ps.setInt(2, paciente_id);
 			ps.setInt(3, medico_id);
 			ps.setString(4, data_inicio_realizacao);
@@ -74,6 +94,7 @@ public class Exame {
 			ps.setString(6, data_inicio_vencimento);
 			ps.setString(7, data_fim_vencimento);
 			ps.setInt(8, apto);
+			*/
 			rs = ps.executeQuery();
 			return rs;
 		} catch (Exception e) {

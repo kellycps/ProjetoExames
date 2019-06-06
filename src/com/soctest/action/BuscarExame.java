@@ -30,10 +30,22 @@ public class BuscarExame extends ActionSupport {
 
 			DateTimeFormatter formatoBr = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 			DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-			data_inicio_realizacao = formatoBr.format(LocalDate.parse(data_inicio_realizacao, formatoBr));
-			data_fim_realizacao = formatoBr.format(LocalDate.parse(data_fim_realizacao, formatoBr));
-			data_inicio_vencimento = formatoBr.format(LocalDate.parse(data_inicio_vencimento, formatoBr));
-			data_fim_vencimento = formatoBr.format(LocalDate.parse(data_fim_vencimento, formatoBr));
+
+			if (!data_inicio_realizacao.isEmpty()) {
+				data_inicio_realizacao = formatoBr.format(LocalDate.parse(data_inicio_realizacao, formatoBr));
+			}
+			
+			if (!data_fim_realizacao.isEmpty()) {
+				data_fim_realizacao = formatoBr.format(LocalDate.parse(data_fim_realizacao, formatoBr));
+			}
+			
+			if (!data_inicio_vencimento.isEmpty()) {
+				data_inicio_vencimento = formatoBr.format(LocalDate.parse(data_inicio_vencimento, formatoBr));
+			}
+			
+			if (!data_fim_vencimento.trim().isEmpty()) {
+				data_fim_vencimento = formatoBr.format(LocalDate.parse(data_fim_vencimento, formatoBr));
+			}
 			
 			rs = exame.buscar(tipo_exame_id, paciente_id, medico_id, data_inicio_realizacao, data_fim_realizacao, data_inicio_vencimento, data_fim_vencimento, apto);
 			int i = 0;
