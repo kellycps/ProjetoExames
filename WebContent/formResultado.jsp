@@ -6,6 +6,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Projeto Exames - Resultado</title>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
 </head>
 <body>
 	<div>

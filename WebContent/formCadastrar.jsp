@@ -6,8 +6,10 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Projeto Exames - Cadastrar</title>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
 </head>
 <body>
+	<h2>Cadastro de Exames</h2>
 	<s:form action="inserirExame">
 		<s:select label="Tipo de exame" list="tipoExameList" listKey="id" listValue="nome" name="tipo_exame_id"></s:select>
 		<s:select label="Paciente" list="pacienteList" listKey="id" listValue="nome" name="paciente_id"></s:select>

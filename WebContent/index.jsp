@@ -6,9 +6,10 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Projeto Exames</title>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
 </head>
 <body>
-	<a href="cadastrar">Cadastrar</a>
-	<a href="buscar">Buscar</a>
+	<h2><a href="cadastrar">Cadastrar</a></h2>
+	<h2><a href="buscar">Buscar</a></h2>
 </body>
 </html>

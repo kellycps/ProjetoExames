@@ -9,6 +9,7 @@
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 </head>
 <body>
+	<h2>Alterar Exames</h2>
 	<s:form action="alterarExame">
 		<s:hidden name="id" value="%{id}" />
 		<s:select label="Tipo de exame" list="tipoExameList" listKey="id" listValue="nome" name="tipo_exame_id" value='tipo_exame_id'></s:select>
