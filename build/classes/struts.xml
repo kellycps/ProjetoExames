@@ -1,0 +1,44 @@
+<!DOCTYPE struts PUBLIC
+	"-//Apache Spftware Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<package name="default" namespace="/" extends="struts-default">
+		
+		<!-- Actions de acesso as páginas -->
+		
+		<action name="home">
+			<result>/index.jsp</result>
+		</action>
+		
+		<action name="cadastrar" class="com.soctest.action.Exame">
+			<result>/formCadastrar.jsp</result>
+		</action>
+		
+		<action name="alterar">
+			<result>/formAlterar.jsp</result>
+		</action>
+	
+		<action name="buscar" class="com.soctest.action.Exame">
+			<result>/formBuscar.jsp</result>
+		</action>
+		
+		<!-- Actions de manipulação da base de dados -->
+		
+		<action name="inserirExame" class="com.soctest.action.InserirExame">
+			<result name="success" type="redirectAction">
+				<param name="actionName">cadastrar</param>
+			</result>
+			<result name="error">/index.jsp</result>
+		</action>
+		
+		<action name="buscarExame" class="com.soctest.action.BuscarExame">
+			<result name="SUCCESS">/formResultado.jsp</result>
+		</action>
+	
+		<action name="deletarExame" class="com.soctest.action.DeletarExame">
+			<result name="SUCCESS">/mensagem.jsp</result>
+		</action>
+	
+	</package>
+</struts>
